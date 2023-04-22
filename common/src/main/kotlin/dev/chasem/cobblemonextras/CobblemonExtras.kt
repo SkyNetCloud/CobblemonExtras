@@ -11,11 +11,14 @@ import net.minecraft.server.command.ServerCommandSource
 
 object CobblemonExtras {
     public lateinit var permissions: CobblemonExtrasPermissions
+
     const val MODID = "cobblemonextras"
+
     fun initialize() {
         System.out.println("CobblemonExtras - Initialized")
         CobblemonExtrasConfig() // must load before permissions so perms use default permission level.
         this.permissions = CobblemonExtrasPermissions()
+
 
         CommandRegistrationEvent.EVENT.register(CobblemonExtras::registerCommands)
     }
