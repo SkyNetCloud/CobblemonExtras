@@ -1,13 +1,19 @@
 package dev.chasem.cobblemonextras
 
+
 import com.mojang.brigadier.CommandDispatcher
 import dev.architectury.event.events.common.CommandRegistrationEvent
+import dev.architectury.registry.registries.Registries
 import dev.chasem.cobblemonextras.commands.*
 import dev.chasem.cobblemonextras.config.CobblemonExtrasConfig
+import dev.chasem.cobblemonextras.init.BlockInit
+import dev.chasem.cobblemonextras.init.ItemInit
 import dev.chasem.cobblemonextras.permissions.CobblemonExtrasPermissions
 import net.minecraft.command.CommandRegistryAccess
 import net.minecraft.server.command.CommandManager
 import net.minecraft.server.command.ServerCommandSource
+import net.minecraft.util.Identifier
+import net.minecraft.util.registry.Registry
 
 object CobblemonExtras {
     public lateinit var permissions: CobblemonExtrasPermissions
@@ -15,12 +21,14 @@ object CobblemonExtras {
     const val MODID = "cobblemonextras"
 
     fun initialize() {
+
         System.out.println("CobblemonExtras - Initialized")
         CobblemonExtrasConfig() // must load before permissions so perms use default permission level.
         this.permissions = CobblemonExtrasPermissions()
 
-
         CommandRegistrationEvent.EVENT.register(CobblemonExtras::registerCommands)
+
+
     }
 
     fun registerCommands(
@@ -39,5 +47,9 @@ object CobblemonExtras {
         PCDelete().register(dispatcher)
         PokeIVs().register(dispatcher)
     }
+
+
+
+
 
 }

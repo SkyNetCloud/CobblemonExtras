@@ -16,8 +16,8 @@ class CobblemonExtrasForge {
             EventBuses.registerModEventBus(CobblemonExtras.MODID, this)
             addListener(this@CobblemonExtrasForge::initialize)
             addListener(this@CobblemonExtrasForge::serverInit)
-            BlockInit.BLOCKS.register();
-            ItemInit.ITEMS.register();
+            BlockInit.BLOCKS.register()
+            ItemInit.ITEMS.register()
         }
     }
 
@@ -27,6 +27,8 @@ class CobblemonExtrasForge {
     fun initialize(event: FMLCommonSetupEvent) {
         CobblemonExtras.initialize()
         System.out.println("Cobblemon Forge Init.")
+
+
     }
 
 }
